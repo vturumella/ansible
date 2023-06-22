@@ -1,0 +1,11 @@
+---
+- hosts: dev
+  become: true
+  tasks:
+    - name: install aqpaqche
+      dnf:
+        name: httpd
+        state: present
+       
+    - service: name=httpd state=started enabled=yes
+    - raw: "echo Welcome to my ec2 instance | sudo tee /var/www/html/index.html"
