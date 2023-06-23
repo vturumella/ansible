@@ -12,3 +12,4 @@ keyed_groups:
     seperator: ''
   - key: instance_type
     prefix: instance_type
+  

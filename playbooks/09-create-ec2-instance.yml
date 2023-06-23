@@ -1,0 +1,24 @@
+---
+- hosts: localhost
+  tasks:
+    - ec2_instance:
+        region: us-east-1
+        key_name: default-ec2
+        instance_type: t2.micro
+        image_id: ami-022e1a32d3f742bd8
+        exact_count: 2
+        tags: {type:http}
+        vpc_subnet_id: subnet-03ea3b823b8f065b2
+        network:
+          assign_public_ip: true
+        security_groups: ["security-group-ecsg"]
+        resource_tags: {type:http, Environment: QA}
+        wait: yes
+      register: ec2_output
+    - debug: var=ec2_output 
+
+
+
+  
+
+
